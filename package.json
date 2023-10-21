@@ -9,14 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "gsap": "^3.12.2",
+    "locomotive-scroll": "^5.0.0-beta.8",
+    "next": "13.5.6",
     "react": "^18",
     "react-dom": "^18",
-    "next": "13.5.6"
+    "react-icons": "^4.11.0",
+    "sass": "^1.69.4"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18"
+    "@types/node": "20.8.7",
+    "@types/react": "18.2.31",
+    "typescript": "5.2.2"
   }
 }

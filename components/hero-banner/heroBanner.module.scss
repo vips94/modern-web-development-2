@@ -1,0 +1,49 @@
+.page-section{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 95%;
+    height: 100vh;
+    z-index: 1;
+
+    .text-sec{
+        display: block;
+        text-align: left;
+        width: 100%;
+
+        h5{
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1;
+            color: black;
+        }
+
+        .title{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 2rem;
+            width: 100%;
+            h1{
+                font-size: 8rem;
+                font-weight: bold;
+                line-height: 80%;
+                color: transparent;
+                -webkit-text-stroke: 1px black;
+                transition: color ease-in-out 300ms;
+
+                &:hover{
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:768px) {
+    .page-section{
+        max-width: 80%;
+    }
+}
