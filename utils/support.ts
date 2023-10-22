@@ -176,7 +176,7 @@ export const init = (
     }
   }
   Object.assign(uniforms, {
-    zindex: { value: 9996999, range: [-9999999, 9999999] },
+    zindex: { value: 0, range: [-9999999, 9999999] },
     aspect: {
       value: elemWidth / elemHeight,
     },
@@ -306,7 +306,9 @@ export const init = (
   const config = (c:any) => {
     if (c.color) c.color.value = new THREE.Color(c.color.value)
     Object.assign(uniforms, c)
-    (document.querySelector('._canvas_container')as any).style.zIndex = uniforms.zindex.value
+    const _canvas = (document.querySelector('._canvas_container')as any)
+    console.log(uniforms)
+    _canvas.style.zIndex = uniforms.zindex.value
   }
 
   if (opts.preset)
@@ -317,8 +319,9 @@ export const init = (
 
   if ((opts.debug && !isdebug[effect]) || false) {
     isdebug[effect] = true
+    console.log("controlKit");
     controlKit = new ControlKit()
-
+    console.log("controlKit",controlKit);
     if (opts.gooey === true) {
       controlKit
         .addPanel({
@@ -428,14 +431,16 @@ export const init = (
         step: 1,
         onChange: () => ((document.querySelector('._canvas_container') as any).style.zIndex = uniforms.zindex.value),
       })
-    (document.querySelector('body #controlKit .panel .button, #controlKit .picker .button') as any).style.color = "#8c92a4"
+      const _control = (document.querySelector('body #controlKit .panel .button, #controlKit .picker .button') as any)
+      _control.style.color = "#8c92a4"
     if (!(elem.nodeName.toLowerCase() === "img") && opts.gooey != true)
       (panel as any).addSelect(debugObj, "scrollType", {
         target: "scrollTypeIs",
         label: "Scroll Type",
         onChange: (x:any) => (uniforms.scrollType.value = x),
       })
-      (panel as any)
+      const _panel = (panel as any)
+      _panel
       .addCheckbox(uniforms.masker, "value", {
         label: "Image Zoomer",
       })

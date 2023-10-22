@@ -16,6 +16,7 @@ let loaded = false;
 export default function Home() {
 
   useLayoutEffect(()=>{
+    // const ctx = gsap.context(()=>{
     if(!loaded){
       console.log("hi2")
       mouseFollower();
@@ -26,43 +27,48 @@ export default function Home() {
 
       // console.log(`.${styles1['fleftelm']}`)
       
-
-      gsap.to(`.${styles1['fleftelm']}`, {
-        scrollTrigger: {
-          trigger: "#fimgages",
-          pin: true,
-          start: "top top",
-          end: "bottom bottom",
-          endTrigger: "#last",
-          scrub: 1,
-          // markers: true
-        },
-        y: "-300%",
-        ease: 'power1',
+        gsap.to(`.${styles1['fleftelm']}`, {
+          scrollTrigger: {
+            trigger: "#fimgages",
+            pin: true,
+            start: "top top",
+            end: "bottom bottom",
+            endTrigger: "#last",
+            scrub: 1,
+            // markers: true
+          },
+          y: "-300%",
+          ease: 'power1',
+        });
+  
+        ScrollTrigger.refresh();
+  
+      let sections = document.querySelectorAll(`.${styles1['fleftelm']}`);
+      imageEffect(`.${styles1['featured-Ritems']}`, {
+      style: 2,
+      config:{onMouse:{value:0}},
+      // debug :true,
+      // config: {"uFrequencyX":{"value":59.5,"range":[0,100]},"uFrequencyY":{"value":15.7,"range":[0,100]},"uFrequencyZ":{"value":5.79,"range":[0,100]},"geoVertex":{"range":[1,64],"value":45.26},"zindex":{"value":0,"range":[-9999999,9999999]},"aspect":{"value":0.4930003630935571},"gooey":{"value":false},"infiniteGooey":{"value":false},"growSize":{"value":4,"range":[1,15]},"durationOut":{"value":1,"range":[0.1,5]},"durationIn":{"value":1.5,"range":[0.1,5]},"displaceAmount":{"value":0.5},"masker":{"value":true},"maskVal":{"value":2.42,"range":[1,5]},"scrollType":{"value":0},"noEffectGooey":{"value":true},"onMouse":{"value":0},"noise_speed":{"value":0.2,"range":[0,10]},"metaball":{"value":0.2,"range":[0,2]},"discard_threshold":{"value":0.5,"range":[0,1]},"antialias_threshold":{"value":0.002,"range":[0,0.1]},"noise_height":{"value":0.5,"range":[0,2]},"noise_scale":{"value":10,"range":[0,100]}},
+      slideStyle: (setScroll:any) => {
+          sections.forEach(function (section, index) {
+          ScrollTrigger.create({
+              trigger: section,
+              start: "top top",
+              scrub: 1,
+              onUpdate: function (prog) {
+                  setScroll(prog.progress + index);
+              },
+          });
+          });
+      },
       });
 
-      ScrollTrigger.refresh();
-
-    let sections = document.querySelectorAll(`.${styles1['fleftelm']}`);
-    imageEffect(`.${styles1['featured-Ritems']}`, {
-    style: 1,
-    // dubug :true,
-    config: { onMouse: { value: 1 } },
-    slideStyle: (setScroll:any) => {
-        sections.forEach(function (section, index) {
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            scrub: 1,
-            onUpdate: function (prog) {
-                setScroll(prog.progress + index);
-            },
-        });
-        });
-    },
-    });
+     
     }
     loaded = true;
+  // })
+
+    // return () => ctx.revert();
   },[]) 
 
   return (
