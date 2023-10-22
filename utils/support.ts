@@ -2,7 +2,6 @@ import * as THREE from "three"
 const ControlKit = require('controlkit')
 import { ScrollPos } from "./effects";
 import gsap from "gsap"
-import { Expo } from "gsap/all"
 
 export const lerp = (x:any, y:any, a:any) => x * (1 - a) + y * a
 
@@ -177,7 +176,7 @@ export const init = (
     }
   }
   Object.assign(uniforms, {
-    zindex: { value: -9996999, range: [-9999999, 9999999] },
+    zindex: { value: 9996999, range: [-9999999, 9999999] },
     aspect: {
       value: elemWidth / elemHeight,
     },
@@ -229,6 +228,8 @@ export const init = (
     fragmentShader: fragment.replace("#define SNOISEHOLDER", snoise),
     uniforms,
   })
+
+  console.log("shader",material);
 
   const elemMesh = new THREE.Mesh(geometry, material)
   elemMesh.scale.set(elemWidth, elemHeight, 0)

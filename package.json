@@ -11,9 +11,8 @@
   "dependencies": {
     "@brunoimbrizi/controlkit": "^0.2.2",
     "controlkit": "^0.1.9",
-    "glsl-shader-loader": "^0.1.6",
+    "glslify-loader": "^2.0.0",
     "gsap": "^3.12.2",
-    "locomotive-scroll": "^5.0.0-beta.8",
     "next": "13.5.6",
     "react": "^18",
     "react-dom": "^18",
@@ -25,6 +24,7 @@
     "@types/node": "20.8.7",
     "@types/react": "18.2.31",
     "@types/three": "^0.157.2",
+    "raw-loader": "^4.0.2",
     "typescript": "5.2.2"
   }
 }

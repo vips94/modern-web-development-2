@@ -116,7 +116,7 @@ a {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  z-index: 0;
+  z-index: 1;
   mix-blend-mode: normal;
   background-color: red;
 }
@@ -217,7 +217,7 @@ a {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: -9996999;
+  z-index: 0;
   top: 0;
   left: 0;
 }
