@@ -89,7 +89,7 @@ export function mouseFollower(opts = {} as any) {
         )
   
         gsap.to(".mousefollower", {
-          scale: 4,
+          scale: opts.scale || 4,
           ease: 'Power2.out',
           duration: 0.5,
         })

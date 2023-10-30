@@ -8,6 +8,7 @@ import Featured from '@/components/featured';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import styles1 from '@/components/featured/featured.module.scss';
+import MaskSection from '@/components/maskSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,8 +20,13 @@ export default function Home() {
     // const ctx = gsap.context(()=>{
     if(!loaded){
       console.log("hi2")
-      mouseFollower();
-      makeMagnet('.magnet')
+      mouseFollower({
+        ease: 'power1.out',
+        duration: 0.5
+      });
+      makeMagnet('.magnet',{
+        scale:2
+      })
       hoverWithMediaCircle(".hvr", {
         videos: ["/videos/0.mp4", "/videos/2.mp4", "/videos/3.mp4"],
       });
@@ -82,6 +88,7 @@ export default function Home() {
         <NavBar/>
         <HeroBanner/>
         <Featured/>
+        <MaskSection/>
       </main>
     </>
   )
